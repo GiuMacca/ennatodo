@@ -41,6 +41,10 @@ class AuthFirebaseServiceImpl extends AuthFirebaseService {
       }
 
       return Left(message);
-    }
+    } /*catch (e) {
+      // AGGIUNGI QUESTO: Cattura qualsiasi altro errore (es. i permessi di Firestore!)
+      // In questo modo, se Firestore fallisce, restituisci comunque un Left ordinato alla UI
+      return Left("Database error: Missing or insufficient permissions.");
+    }*/
   }
 }

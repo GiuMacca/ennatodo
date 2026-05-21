@@ -49,7 +49,7 @@ class SignupPage extends StatelessWidget {
               const SizedBox(height: 20),
               _submitButton(context),
               const SizedBox(height: 20),
-              _createAccount(context),
+              _useYourAccount(context),
             ],
           ),
         ),
@@ -114,7 +114,7 @@ class SignupPage extends StatelessWidget {
     );
   }
 
-  Widget _createAccount(BuildContext context) {
+  Widget _useYourAccount(BuildContext context) {
     return RichText(
       // Per Click
       text: TextSpan(

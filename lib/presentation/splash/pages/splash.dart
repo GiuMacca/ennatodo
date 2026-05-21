@@ -20,13 +20,13 @@ class SplashPage extends StatelessWidget {
         }
       },
       child: Scaffold(
-        backgroundColor: AppColors.primary,
+        backgroundColor: AppColors.background,
         body: Center(
           child: Text(
             "Enna ToDo",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: Colors.white70,
+              color: AppColors.primary ,
               fontSize: 40,
             ),
           ),

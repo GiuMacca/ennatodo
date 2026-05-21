@@ -1,5 +1,4 @@
 import 'package:ennatodo/common/bloc/button/button_cubit.dart';
-import 'package:ennatodo/core/usecases/usecase.dart';
 import 'package:ennatodo/data/auth/repository/auth_repository_impl.dart';
 import 'package:ennatodo/data/auth/source/auth_firebase_service.dart';
 import 'package:ennatodo/domain/auth/repository/auth.dart';
