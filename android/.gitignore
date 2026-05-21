@@ -12,3 +12,7 @@ GeneratedPluginRegistrant.java
 key.properties
 **/*.keystore
 **/*.jks
+
+# blocca TUTTI i file .json di Firebase
+**/google-services.json
+**/GoogleService-Info.plist
