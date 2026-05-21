@@ -1,4 +1,5 @@
 import 'package:ennatodo/common/helper/navigator/app_navigator.dart';
+import 'package:ennatodo/common/widgets/appBar/app_bar.dart';
 import 'package:ennatodo/common/widgets/buttons/basic_button.dart';
 import 'package:ennatodo/presentation/auth/pages/enter_password.dart';
 import 'package:flutter/gestures.dart';
@@ -10,8 +11,9 @@ class SigninPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: const BasicAppBar(hideBack: true,),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 80),
+        padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -42,7 +44,7 @@ class SigninPage extends StatelessWidget {
   Widget _continueButton(BuildContext context) {
     return BasicButton(
       onPressed: () {
-        AppNavigator.pushReplacement(context, const EnterPasswordPage());
+        AppNavigator.push(context, const EnterPasswordPage());
       },
       title: 'Continue',
     );
