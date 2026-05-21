@@ -1,4 +1,6 @@
+import 'package:ennatodo/common/helper/navigator/app_navigator.dart';
 import 'package:ennatodo/common/widgets/buttons/basic_button.dart';
+import 'package:ennatodo/presentation/auth/pages/enter_password.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -17,9 +19,9 @@ class SigninPage extends StatelessWidget {
             const SizedBox(height: 20),
             _emailField(context),
             const SizedBox(height: 20),
-            _continueButton(),
+            _continueButton(context),
             const SizedBox(height: 20),
-            _createAccount(context)
+            _createAccount(context),
           ],
         ),
       ),
@@ -37,31 +39,31 @@ class SigninPage extends StatelessWidget {
     return TextField(decoration: InputDecoration(hintText: 'Enter Email'));
   }
 
-  Widget _continueButton() {
+  Widget _continueButton(BuildContext context) {
     return BasicButton(
-      onPressed: (){},
+      onPressed: () {
+        AppNavigator.pushReplacement(context, const EnterPasswordPage());
+      },
       title: 'Continue',
     );
   }
 
-  Widget _createAccount(BuildContext context){
-    return RichText(  // Per Click
+  Widget _createAccount(BuildContext context) {
+    return RichText(
+      // Per Click
       text: TextSpan(
         children: [
-           TextSpan(
-            text: 'Dont have an Account?'
-           ),
-            TextSpan(
+          TextSpan(text: 'Dont have an Account?'),
+          TextSpan(
             text: ' Create One',
-            recognizer: TapGestureRecognizer()..onTap = () {
-              // signup page soon
-            },
-            style: TextStyle(
-              fontWeight: FontWeight.bold
-            )
-           )
-        ]
-      )
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                // signup page soon
+              },
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 }
