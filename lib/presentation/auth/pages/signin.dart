@@ -1,3 +1,5 @@
+import 'package:ennatodo/common/widgets/buttons/basic_button.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 class SigninPage extends StatelessWidget {
@@ -13,8 +15,12 @@ class SigninPage extends StatelessWidget {
           children: [
             _siginText(context),
             const SizedBox(height: 20),
-            _emailField(context)
-          ]
+            _emailField(context),
+            const SizedBox(height: 20),
+            _continueButton(),
+            const SizedBox(height: 20),
+            _createAccount(context)
+          ],
         ),
       ),
     );
@@ -28,8 +34,34 @@ class SigninPage extends StatelessWidget {
   }
 
   Widget _emailField(BuildContext context) {
-    return TextField(
-      decoration: InputDecoration(),
+    return TextField(decoration: InputDecoration(hintText: 'Enter Email'));
+  }
+
+  Widget _continueButton() {
+    return BasicButton(
+      onPressed: (){},
+      title: 'Continue',
+    );
+  }
+
+  Widget _createAccount(BuildContext context){
+    return RichText(  // Per Click
+      text: TextSpan(
+        children: [
+           TextSpan(
+            text: 'Dont have an Account?'
+           ),
+            TextSpan(
+            text: ' Create One',
+            recognizer: TapGestureRecognizer()..onTap = () {
+              // signup page soon
+            },
+            style: TextStyle(
+              fontWeight: FontWeight.bold
+            )
+           )
+        ]
+      )
     );
   }
 }
