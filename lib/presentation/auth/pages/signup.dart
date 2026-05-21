@@ -2,23 +2,22 @@ import 'package:ennatodo/common/helper/navigator/app_navigator.dart';
 import 'package:ennatodo/common/widgets/appBar/app_bar.dart';
 import 'package:ennatodo/common/widgets/buttons/basic_button.dart';
 import 'package:ennatodo/presentation/auth/pages/enter_password.dart';
-import 'package:ennatodo/presentation/auth/pages/signup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+class SignupPage extends StatelessWidget {
+  const SignupPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const BasicAppBar(hideBack: true),
+      appBar: const BasicAppBar(),
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            _siginText(context),
+            _createAccountText(context),
             const SizedBox(height: 20),
             _emailField(context),
             const SizedBox(height: 20),
@@ -31,9 +30,9 @@ class SigninPage extends StatelessWidget {
     );
   }
 
-  Widget _siginText(BuildContext context) {
+  Widget _createAccountText(BuildContext context) {
     return const Text(
-      'Sign In',
+      'Create Account',
       style: TextStyle(fontSize: 32, fontWeight: FontWeight.bold),
     );
   }
@@ -62,7 +61,6 @@ class SigninPage extends StatelessWidget {
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 // signup page soon
-                AppNavigator.push(context, const SignupPage());
               },
             style: TextStyle(fontWeight: FontWeight.bold),
           ),

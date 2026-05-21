@@ -1,5 +1,7 @@
+import 'package:ennatodo/common/helper/navigator/app_navigator.dart';
 import 'package:ennatodo/common/widgets/appBar/app_bar.dart';
 import 'package:ennatodo/common/widgets/buttons/basic_button.dart';
+import 'package:ennatodo/presentation/auth/pages/forgot_password.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
@@ -21,7 +23,7 @@ class EnterPasswordPage extends StatelessWidget {
             const SizedBox(height: 20),
             _continueButton(),
             const SizedBox(height: 20),
-            _forgotPassword(context)
+            _forgotPassword(context),
           ],
         ),
       ),
@@ -40,30 +42,26 @@ class EnterPasswordPage extends StatelessWidget {
   }
 
   Widget _continueButton() {
-    return BasicButton(
-      onPressed: (){},
-      title: 'Continue',
-    );
+    return BasicButton(onPressed: () {}, title: 'Continue');
   }
 
-  Widget _forgotPassword(BuildContext context){
-    return RichText(  // Per Click
+  Widget _forgotPassword(BuildContext context) {
+    return RichText(
+      // Per Click
       text: TextSpan(
         children: [
-           TextSpan(
-            text: 'Forgot password? '
-           ),
-            TextSpan(
+          TextSpan(text: 'Forgot password? '),
+          TextSpan(
             text: 'Reset',
-            recognizer: TapGestureRecognizer()..onTap = () {
-              // signup page soon
-            },
-            style: TextStyle(
-              fontWeight: FontWeight.bold
-            )
-           )
-        ]
-      )
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                // fix: Forgot Password
+                AppNavigator.push(context, const ForgotPasswordPage());
+              },
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+        ],
+      ),
     );
   }
 }
