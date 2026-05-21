@@ -1,3 +1,4 @@
+import 'package:ennatodo/common/bloc/button/button_cubit.dart';
 import 'package:ennatodo/common/helper/navigator/app_navigator.dart';
 import 'package:ennatodo/common/widgets/appBar/app_bar.dart';
 import 'package:ennatodo/common/widgets/buttons/basic_button.dart';
@@ -5,6 +6,8 @@ import 'package:ennatodo/presentation/auth/pages/enter_password.dart';
 import 'package:ennatodo/presentation/auth/pages/signup.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:ennatodo/service_locator.dart';
 
 class SigninPage extends StatelessWidget {
   const SigninPage({super.key});
@@ -62,7 +65,7 @@ class SigninPage extends StatelessWidget {
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 // signup page soon
-                AppNavigator.push(context, const SignupPage());
+                AppNavigator.push(context, BlocProvider(create: (context) => sl<ButtonCubit>(),child: SignupPage()));
               },
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
