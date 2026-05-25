@@ -2,6 +2,7 @@ import 'package:ennatodo/common/bloc/button/button_cubit.dart';
 import 'package:ennatodo/common/helper/navigator/app_navigator.dart';
 import 'package:ennatodo/common/widgets/appBar/app_bar.dart';
 import 'package:ennatodo/common/widgets/buttons/basic_button.dart';
+import 'package:ennatodo/data/auth/models/user_signin_req.dart';
 import 'package:ennatodo/presentation/auth/pages/enter_password.dart';
 import 'package:ennatodo/presentation/auth/pages/signup.dart';
 import 'package:flutter/gestures.dart';
@@ -10,8 +11,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ennatodo/service_locator.dart';
 
 class SigninPage extends StatelessWidget {
-  const SigninPage({super.key});
+  SigninPage({super.key});
 
+  final TextEditingController _emailCon = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -42,13 +44,21 @@ class SigninPage extends StatelessWidget {
   }
 
   Widget _emailField(BuildContext context) {
-    return TextField(decoration: InputDecoration(hintText: 'Enter Email'));
+    return TextField(
+      controller: _emailCon,
+      decoration: InputDecoration(hintText: 'Enter Email'),
+    );
   }
 
   Widget _continueButton(BuildContext context) {
     return BasicButton(
       onPressed: () {
-        AppNavigator.push(context, const EnterPasswordPage());
+        AppNavigator.push(
+          context,
+          EnterPasswordPage(
+            signinReq: UserSigninReq(email: _emailCon.text),
+          ),
+        );
       },
       title: 'Continue',
     );
@@ -65,7 +75,13 @@ class SigninPage extends StatelessWidget {
             recognizer: TapGestureRecognizer()
               ..onTap = () {
                 // signup page soon
-                AppNavigator.push(context, BlocProvider(create: (context) => sl<ButtonCubit>(),child: SignupPage()));
+                AppNavigator.push(
+                  context,
+                  BlocProvider(
+                    create: (context) => sl<ButtonCubit>(),
+                    child: SignupPage(),
+                  ),
+                );
               },
             style: TextStyle(fontWeight: FontWeight.bold),
           ),
