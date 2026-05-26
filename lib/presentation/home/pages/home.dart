@@ -1,4 +1,5 @@
 import 'package:ennatodo/presentation/home/widgets/header.dart';
+import 'package:ennatodo/presentation/home/widgets/search_field.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -12,6 +13,7 @@ class HomePage extends StatelessWidget {
           children: [
             Header(),
             SizedBox(height: 24),
+            SearchField(),
           ],
         ),
       ),
