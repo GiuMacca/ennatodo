@@ -90,6 +90,7 @@ class Categories extends StatelessWidget {
                       const AssetImage(
                       AppImages.profile
                     ): NetworkImage(categories[index].image)
+                    // NetworkImage(ImageDisplayHelper.generateCategoryImageURL(categories[index].image),) // Using storage Firebase
                   )
                 ),
               ),
