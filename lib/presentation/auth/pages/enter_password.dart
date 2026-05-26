@@ -6,6 +6,7 @@ import 'package:ennatodo/common/widgets/buttons/basic_reactive_button.dart';
 import 'package:ennatodo/data/auth/models/user_signin_req.dart';
 import 'package:ennatodo/domain/auth/usecases/signin_usecase.dart';
 import 'package:ennatodo/presentation/auth/pages/forgot_password.dart';
+import 'package:ennatodo/presentation/home/pages/home.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -35,7 +36,7 @@ class EnterPasswordPage extends StatelessWidget {
               }
 
               if (state is ButtonSuccessState) {
-              
+                AppNavigator.pushAndRemove(context, const HomePage());
               }
             },
             child: Column(

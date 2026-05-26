@@ -1,5 +1,7 @@
+import 'package:ennatodo/common/helper/navigator/app_navigator.dart';
 import 'package:ennatodo/core/configs/theme/app_colors.dart';
 import 'package:ennatodo/presentation/auth/pages/signin.dart';
+import 'package:ennatodo/presentation/home/pages/home.dart';
 import 'package:ennatodo/presentation/splash/bloc/splash_cubit.dart';
 import 'package:ennatodo/presentation/splash/bloc/splash_state.dart';
 import 'package:flutter/material.dart';
@@ -13,10 +15,10 @@ class SplashPage extends StatelessWidget {
     return BlocListener<SplashCubit, SplashState>(
       listener: (context, state) {
         if (state is UnAuthenticated) {
-          Navigator.pushReplacement(
-            context,
-            MaterialPageRoute(builder: (context) =>  SigninPage()),
-          );
+          AppNavigator.pushReplacement(context, SigninPage());
+        }
+        if (state is Authenticated) {
+          AppNavigator.pushReplacement(context, const HomePage());
         }
       },
       child: Scaffold(
@@ -26,7 +28,7 @@ class SplashPage extends StatelessWidget {
             "Enna ToDo",
             style: TextStyle(
               fontWeight: FontWeight.bold,
-              color: AppColors.primary ,
+              color: AppColors.primary,
               fontSize: 40,
             ),
           ),
