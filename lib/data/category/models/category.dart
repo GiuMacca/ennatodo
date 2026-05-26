@@ -4,29 +4,33 @@ import 'dart:convert';
 import 'package:ennatodo/domain/category/entity/category.dart';
 
 class CategoryModel {
-  final String title;
+  
   final String categoryId;
   final String image;
+  final String title;
 
   CategoryModel({
-    required this.title,
+
     required this.categoryId,
     required this.image,
+        required this.title,
   });
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
-      'title': title,
+
       'categoryId': categoryId,
       'image': image,
+      'title': title,
     };
   }
 
   factory CategoryModel.fromMap(Map<String, dynamic> map) {
     return CategoryModel(
-      title: map['title'] as String,
+      
       categoryId: map['categoryId'] as String,
       image: map['image'] as String,
+      title: map['title'] as String,
     );
   }
 
